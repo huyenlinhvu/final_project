@@ -1,0 +1,25 @@
+<section class='container'>
+     <divclass='user-update'>  
+	<p class='alert'><?= $message ?? '' ?></p>
+	<h1 class='title'>Update personal infos</h1>
+	
+	<form id="update-container"a method="POST">
+		<input name="username" type="text" placeholder="Username" value = "<?= htmlentities($dbusername, ENT_QUOTES); ?>";/>
+		<input  name="email" type="email" placeholder="Email" value = "<?= htmlentities($dbemail, ENT_QUOTES); ?>" />
+		<input name="password" type="password" placeholder="Password" />
+				
+		<?php if( $_SESSION['role'] == "1"){
+				?>
+			<select name="role">
+				<option value="0" <?php if($dbrole == '0'){ ?> selected <?php } ?> >user</option>
+				<option value="1" <?php if($dbrole == '1'){ ?> selected <?php } ?> >admin</option>
+			</select>
+		<?php } ?>
+				
+		<button class='btn' name="update" type="submit" value="update"></a>Update</button>
+		<button class='btn' name="delete" type="submit" value="delete"></a>Delete Account</button>
+	</form>
+	</div> 
+</section>
+
+

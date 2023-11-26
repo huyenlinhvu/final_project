@@ -1,0 +1,16 @@
+{
+    "name": "huyenlinhvu/projet",
+    "autoload": {
+        "psr-4": {
+            "App\\": "Src/",
+            "Services\\": "Services/"
+        }
+    },
+    "authors": [
+        {
+            "name": "huyenlinhvu",
+            "email": "huyenlinhvu.pro@gmail.com"
+        }
+    ],
+    "require": {}
+}

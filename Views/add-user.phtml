@@ -1,0 +1,16 @@
+<!--PAGE ADD NEW USER (Only Admin can access)-->
+
+<section class='add-user container'>
+        
+	<p class='alert'><?= htmlentities($message ?? ''); ?></p>
+	<h1 class='title'>Add user</h1>
+	
+	<form id="add-container"a method="POST">
+		<input name="username" type="text" placeholder="Username"/>
+		<input  name="email" type="email" placeholder="Email" />
+		<input name="password" type="password" placeholder="Password" />
+		<button name="add-user" type="submit"></a>Add</button>
+	</form>
+</section>
+
+

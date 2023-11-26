@@ -1,0 +1,60 @@
+<!-- If the user already logged in, then redirect to page Coin -->
+<?php if(isset($_SESSION['email'])){
+    		header('Location: index.php?url=coin');
+        }
+?>
+
+<!-- Else login page appear -->
+<?php if($_GET['block'] == 'create'): ?>
+
+<section class='login container'>
+		<p class='alert'><?= $message ?? '' ?></p>
+		<div class="login-container">
+			<img src="Assets/Img/login.svg"  class='login-img'></img>
+			<div class="form-container">
+				<form method="POST">
+					<h1>Create Account</h1>
+					<input name="username" type="text" placeholder="Username" />
+					<input name="email" type="email" placeholder="Email" />
+					<input name="password" type="password" placeholder="Password" />
+					<button class='btn' name="form" type="submit" value="signUp">Sign Up</button>
+					<p>Already have an account?</p>
+					<a href="index.php?url=login&block=signIn">Log In</a>
+				</form>
+			</div>
+			<div class="text-holder">
+					<h1>Welcome!</h1>
+					<p>Enter your personal details and start the journey with us
+					</p>
+			</div>
+		</div>
+</section>
+
+		
+<?php else: ?>
+
+<section class='login container'>
+		<p class='alert'><?= $message ?? '' ?></p>
+		<div class="login-container">
+			<img src="Assets/Img/login.svg" class='login-img'></img>
+			<div class="form-container">
+				<form method="POST">
+					<h1>Sign in</h1>
+					<input name="email" type="email" placeholder="Email" />
+					<input name="password" type="password" placeholder="Password" />
+					<button class='btn' name="form" type="submit" value="signIn">Sign In</button>
+					<p>New to Coin Ranking?</p>
+				    <a href="index.php?url=login&block=create">Create an account</a>
+				</form>
+			</div>
+			
+				<div class="text-holder">
+						<h1>Welcome Back!</h1>
+						<p>To keep connected with us please login with your personal info</p>
+				</div>
+		</div>
+</section>
+	
+<?php endif; ?>
+
+

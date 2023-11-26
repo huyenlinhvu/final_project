@@ -1,0 +1,34 @@
+<!--PAGE USER MANAGER (only Admin can access)-->
+
+<section id="user-manager" class="container">
+    <h1 class='title'><?= htmlentities($title); ?></h1>
+    <div class="add-user-btn-wrapper">
+        <button class='btn'><a href="index.php?url=add-user">Add user</a></button>
+    </div>
+    <div class='table-wrapper'>
+        <table class="users-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            
+            <tbody>
+                <!--Display all user from db-->
+                <?php foreach($all_user as $user): ?>
+                <tr>
+                	<td><?=htmlentities($user -> user_name, ENT_QUOTES, 'UTF-8');?></td>
+                	<td><?=htmlentities($user -> email, ENT_QUOTES, 'UTF-8');?></td>
+                    
+                    <form class="manager-container" method="POST">
+                        <input name="user_id" type="hidden" value="<?= htmlentities($user -> id, ENT_QUOTES, 'UTF-8'); ?>" />
+                    	<td id='del'><button name="delete" type="submit" value="delete"></a>Delete</button></td>
+                    	<td id='up'><button name="update" type="submit" value="update"><a href="index.php?url=user-update&id=<?= htmlentities($user -> id); ?>">Update</a></button></td>
+                    </form>
+                </tr>
+                <?php endforeach; ?> 
+            </tbody>
+        </table>
+    </div>  
+</section>
